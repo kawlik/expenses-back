@@ -10,9 +10,13 @@ const error = require( './utility/error' );
 const facebook = require( './utility/facebook' );
 
 // local routers
-const routerAuth = require( './routes/auth' );
 const routerIndex = require( './routes/index' );
+
+const routerAuth = require( './routes/auth' );
+const routerExpense = require( './routes/expense' );
+const routerList = require( './routes/list' );
 const routerUser = require( './routes/user' );
+
 
 
 /*  App init
@@ -54,7 +58,10 @@ app.use( facebook );
 /*   *   *   *   *   *   *   *   *   *   */
 
 app.use( '/', routerIndex );
+
 app.use( '/auth', routerAuth );
+app.use( '/expense', routerExpense );
+app.use( '/list', routerList );
 app.use( '/user', routerUser );
 
 

@@ -15,10 +15,10 @@ controller.findOneById = async ( req, res, next ) => {
     try {
         
         // parsing params
-        const { id } = req.params;
+        const { _id_user } = req.params;
 
         // finding user
-        const user = await controller.model.findOne({ _id: id }, { body: 1 });
+        const user = await controller.model.findOne({ _id: _id_user }, { body: 1 });
 
         if( user ) {
 
@@ -104,11 +104,11 @@ controller.addUserAsFriend = async ( req, res, next ) => {
         
         // parsing params
         const { auth } = req.body;
-        const { user } = req.params;
+        const { _id_user } = req.params;
 
         // finding users
         const userA = await controller.model.findOne({ auth: auth });
-        const userB = await controller.model.findOne({ _id: user });
+        const userB = await controller.model.findOne({ _id: _id_user });
 
         // checks users status
         if( userA && userB ) {
@@ -148,11 +148,11 @@ controller.deleteUserFromFriends = async ( req, res, next ) => {
         
         // parsing params
         const { auth } = req.body;
-        const { user } = req.params;
+        const { _id_user } = req.params;
 
         // finding users
         const userA = await controller.model.findOne({ auth: auth });
-        const userB = await controller.model.findOne({ _id: user });
+        const userB = await controller.model.findOne({ _id: _id_user });
 
         // checks users status
         if( userA && userB ) {

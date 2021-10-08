@@ -10,7 +10,7 @@ const controller = require( '../controllers/user' );
 /*   *   *   *   *   *   *   *   *   *   */
 
 // finds one user based by auth
-router.get( '/id/:id', controller.findOneById );
+router.get( '/id/:_id_user', controller.findOneById );
 
 // finds one user based by auth
 router.get( '/auth/:auth', controller.findOneByAuth );
@@ -19,10 +19,10 @@ router.get( '/auth/:auth', controller.findOneByAuth );
 router.get( '/name/:name', controller.findManyByName );
 
 // adds selected friend to a user
-router.put( '/add/:user', controller.addUserAsFriend );
+router.put( '/add/:_id_user', controller.addUserAsFriend );
 
 // delets user selected friend
-router.delete( '/delete/:user', controller.deleteUserFromFriends );
+router.delete( '/delete/:_id_user', controller.deleteUserFromFriends );
 
 /*  Router export
 /*   *   *   *   *   *   *   *   *   *   */
