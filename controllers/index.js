@@ -1,6 +1,9 @@
 // controller prepare
 const Controller = require( '../utility/controller' );
 
+// additional modules
+const config = require( '../utility/config' );
+
 // controller init
 const controller = new Controller();
 
@@ -14,7 +17,7 @@ controller.renderHomePage = async ( req, res, next ) => {
     try {
 
         // proper render
-        return res.render( 'home' );
+        return res.render( 'home' , { docs: config.server.swagger });
 
     } catch( err ) {
 

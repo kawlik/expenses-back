@@ -10,10 +10,24 @@ const passport = require( 'passport' );
 /*  Routes
 /*   *   *   *   *   *   *   *   *   *   */
 
-// facebook auth init
+/**
+ * 
+ *  /auth/facebook:
+ *      get:
+ *          summary: Login process initialization.
+ */
 router.get( '/facebook', controller.auth );
 
-// facebook auth callback & success
+
+/**
+ * 
+ *  /auth/facebook/callback:
+ *      get:
+ *          summary: Completion of the login process.
+ *          responses:
+ *              200:
+ *                  description: Renders the login token page. 
+ */
 router.get( '/facebook/callback', controller.callback, controller.success );
 
 

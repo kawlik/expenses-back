@@ -34,11 +34,41 @@ exports.passport = {
     profileFields: [ 'id', 'displayName', 'picture' ],
 };
 
+/*  Swagger setings
+/*   *   *   *   *   *   *   *   *   *   */
+
+exports.swagger = {
+
+    // basic info
+    info: {
+
+        title: 'Expenses API',
+
+        description: 'Expenses API usage info',
+
+        contact: {
+
+            name: 'kawlik',
+        },
+
+        servers: [
+
+            'http://localhost:8080',
+        ],
+    },
+};
+
 
 /*  Server setings
 /*   *   *   *   *   *   *   *   *   *   */
 
 exports.server = {
+
+    // native front-end server
+    front: 'http://localhost:3000',
+
+    // swagger docs
+    swagger: '/swagger',
 
     // std server port value
     port: process.env.PORT || 8080,

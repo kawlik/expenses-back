@@ -4,6 +4,10 @@ const express = require( 'express' );
 const mongoose = require( 'mongoose' );
 const passport = require( 'passport' );
 
+// swagger modules
+const swaggerJsDoc = require( 'swagger-jsdoc' );
+const swaggerUi = require( 'swagger-ui-express' );
+
 // local modules
 const config = require( './utility/config' );
 const error = require( './utility/error' );
@@ -34,6 +38,10 @@ mongoose.connect( config.db.link, config.db.options, async ( err ) => {
     // connection success
     return console.log( 'DB connected successfully!' );
 });
+
+// swagger setup
+const swaggerDocs = swaggerJsDoc({ swaggerDefinition: config.swagger, apis: [ './routes/*.js' ] });
+app.use( '/swagger', swaggerUi.serve, swaggerUi.setup( swaggerDocs ));
 
 
 /*  Middleware

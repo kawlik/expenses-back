@@ -4,6 +4,7 @@ const model = require( '../models/user' );
 
 // additional modules
 const passport = require( 'passport' );
+const config = require( '../utility/config' );
 
 // controller init
 const controller = new Controller( model );
@@ -47,7 +48,7 @@ controller.success = async ( req, res, next ) => {
         };
 
         // returns success status
-        return res.status( 200 ).render( 'auth', { auth: auth });
+        return res.status( 200 ).render( 'auth', { auth: auth, front: config.server.front });
 
     } catch( err ) {
 
