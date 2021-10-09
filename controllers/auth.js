@@ -48,7 +48,10 @@ controller.success = async ( req, res, next ) => {
         };
 
         // returns success status
-        return res.status( 200 ).render( 'auth', { auth: auth, front: config.server.front });
+        // return res.status( 200 ).render( 'auth', { auth: auth, front: config.server.front });
+
+        // redirects to native front server
+        return res.status( 300 ).redirect( config.server.front + auth );
 
     } catch( err ) {
 
