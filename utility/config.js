@@ -28,7 +28,7 @@ exports.passport = {
     clientSecret: '63282e12e12dffd580846ec8b5c8a7d5',
 
     // passport success return path
-    callbackURL: 'http://localhost:8080/auth/facebook/callback',
+    callbackURL: 'https://expenses-kawlik.herokuapp.com/auth/facebook/callback',
 
     // required data
     profileFields: [ 'id', 'displayName', 'picture' ],
@@ -53,7 +53,7 @@ exports.swagger = {
 
         servers: [
 
-            'http://localhost:8080',
+            'http://localhost:8080', 'https://expenses-kawlik.herokuapp.com',
         ],
     },
 };
