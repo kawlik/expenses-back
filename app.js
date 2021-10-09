@@ -58,7 +58,6 @@ app.use( express.json() );
 
 // facebook passport setings
 app.use( passport.initialize() );
-app.use( passport.session() );
 app.use( facebook );
 
 

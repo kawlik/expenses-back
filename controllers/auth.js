@@ -14,10 +14,10 @@ const controller = new Controller( model );
 /*   *   *   *   *   *   *   *   *   *   */
 
 // facebook auth init
-controller.auth = passport.authenticate( 'facebook' );
+controller.auth = passport.authenticate( 'facebook', { session: false });
 
 // facebook auth success
-controller.callback = passport.authenticate( 'facebook', { failureRedirect: '/' });
+controller.callback = passport.authenticate( 'facebook', { session: false });
 
 // facebook auth success
 controller.success = async ( req, res, next ) => {
