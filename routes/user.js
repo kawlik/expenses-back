@@ -66,7 +66,7 @@ router.get( '/name/:name', controller.findManyByName );
 /**
  * @swagger
  *  /user/add/:_id_user:
- *      post:
+ *      put:
  *          summary: Add user as friend.
  *          parameters:
  *            - in: path
@@ -92,8 +92,8 @@ router.put( '/add/:_id_user', controller.addUserAsFriend );
 
 /**
  * @swagger
- *  /user/delete/:_id_user:
- *      delete:
+ *  /user/remove/:_id_user:
+ *      remove:
  *          summary: Remove user as friend.
  *          parameters:
  *            - in: path
@@ -115,7 +115,7 @@ router.put( '/add/:_id_user', controller.addUserAsFriend );
  *              200:
  *                  description: Removes selected user as friend.
  */
-router.delete( '/delete/:_id_user', controller.deleteUserFromFriends );
+router.put( '/remove/:_id_user', controller.removeUserFromFriends );
 
 /*  Router export
 /*   *   *   *   *   *   *   *   *   *   */

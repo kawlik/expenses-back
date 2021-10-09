@@ -142,7 +142,7 @@ controller.addUserAsFriend = async ( req, res, next ) => {
 };
 
 // delets user selected friend
-controller.deleteUserFromFriends = async ( req, res, next ) => {
+controller.removeUserFromFriends = async ( req, res, next ) => {
 
     try {
         
