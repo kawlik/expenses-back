@@ -11,7 +11,7 @@ const controller = require( '../controllers/list' );
 
 /**
  * @swagger
- *  /list/argue/:_id_user:
+ *  /list/all/:_id_user:
  *      get:
  *          summary: Find all lists assigned to user.
  *          parameters:
