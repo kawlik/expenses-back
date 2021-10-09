@@ -65,7 +65,9 @@ exports.swagger = {
 exports.server = {
 
     // native front-end server
-    front: 'http://localhost:3000/test',
+    frontAuth: 'http://localhost:3000/expenses/?auth=',
+
+    frontBase: 'http://localhost:3000/expenses/',
 
     // swagger docs
     swagger: '/swagger',

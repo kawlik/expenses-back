@@ -2,6 +2,9 @@
 const express = require( 'express' );
 const router = express.Router();
 
+// additional modules
+const config = require( '../utility/config' );
+
 // set up controller
 const controller = require( '../controllers/index' );
 
