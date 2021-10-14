@@ -1,3 +1,6 @@
+// required modules
+const crypto = require( 'crypto' );
+
 /*  Database setings
 /*   *   *   *   *   *   *   *   *   *   */
 
@@ -53,7 +56,7 @@ exports.swagger = {
 
         servers: [
 
-            'http://localhost:8080', 'https://expenses-kawlik.herokuapp.com',
+            'https://expenses-kawlik.herokuapp.com',
         ],
     },
 };
@@ -65,7 +68,7 @@ exports.swagger = {
 exports.session = {
 
     // session secret
-    secret: "cat & dog",
+    secret: crypto.randomBytes( 32 ).toString( 'hex' ),
 
     // session save option
     saveUninitialized: true,
