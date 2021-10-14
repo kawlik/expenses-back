@@ -93,7 +93,7 @@ router.put( '/add/:_id_user', controller.addUserAsFriend );
 /**
  * @swagger
  *  /user/remove/:_id_user:
- *      remove:
+ *      put:
  *          summary: Remove user as friend.
  *          parameters:
  *            - in: path

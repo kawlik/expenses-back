@@ -59,15 +59,30 @@ exports.swagger = {
 };
 
 
+/*  Session setings
+/*   *   *   *   *   *   *   *   *   *   */
+
+exports.session = {
+
+    // session name
+    name: 'session',
+
+    // session keys
+    keys: [ 'cat', 'dog' ],
+
+    // 15 minutes
+    maxAge: 1000 * 60 * 15,
+};
+
 /*  Server setings
 /*   *   *   *   *   *   *   *   *   *   */
 
 exports.server = {
 
     // native front-end server
-    frontAuth: 'http://localhost:3000/expenses/?auth=',
+    frontAuth: 'https://kawlik.github.io/expenses/?auth=',
 
-    frontBase: 'http://localhost:3000/expenses/',
+    frontBase: 'https://kawlik.github.io/expenses/',
 
     // swagger docs
     swagger: '/swagger',

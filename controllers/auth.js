@@ -4,7 +4,7 @@ const model = require( '../models/user' );
 
 // additional modules
 const passport = require( 'passport' );
-const config = require( '../utility/config' );
+
 
 // controller init
 const controller = new Controller( model );
@@ -47,11 +47,11 @@ controller.success = async ( req, res, next ) => {
             await user.save();
         };
 
-        // returns success status
-        // return res.status( 200 ).render( 'auth', { auth: auth, front: config.server.front });
+        // sends secret auth via cookie
+        res.cookie( 'auth', req.user.id );
 
-        // redirects to native front server
-        return res.status( 300 ).redirect( config.server.frontAuth + encodeURIComponent( auth ));
+        // final response
+        return res.status( 300 ).redirect( '/' );
 
     } catch( err ) {
 

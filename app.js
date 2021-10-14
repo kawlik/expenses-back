@@ -3,6 +3,7 @@ const cors = require( 'cors' );
 const express = require( 'express' );
 const mongoose = require( 'mongoose' );
 const passport = require( 'passport' );
+const session = require( 'cookie-session' );
 
 // swagger modules
 const swaggerJsDoc = require( 'swagger-jsdoc' );
@@ -51,6 +52,9 @@ app.use( '/swagger', swaggerUi.serve, swaggerUi.setup( swaggerDocs ));
 app.set( 'view engine', 'ejs' );
 app.use( cors() );
 
+// session setings
+app.use( session( config.session ));
+
 // express setings
 app.use( express.urlencoded({ extended: true }));
 app.use( express.static( 'public' ));
@@ -58,6 +62,7 @@ app.use( express.json() );
 
 // facebook passport setings
 app.use( passport.initialize() );
+app.use( passport.session() );
 app.use( facebook );
 
 

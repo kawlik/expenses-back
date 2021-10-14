@@ -12,8 +12,11 @@ const controller = require( '../controllers/index' );
 /*  Routes
 /*   *   *   *   *   *   *   *   *   *   */
 
+// render app
+router.get( '/', controller.renderAppPage );
+
 // home page render
-router.get( '/', controller.renderHomePage );
+router.get( '/docs', controller.renderDocsPage );
 
 
 /*  Router export

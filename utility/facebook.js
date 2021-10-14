@@ -13,8 +13,12 @@ const facebook = ( req, res, next ) => {
 
     try {
 
+        // passport serialization
+        passport.serializeUser(( user, done ) => done( null, user.id ));
+        passport.deserializeUser(( id, done ) => done( null, id ));
+
         // facebook passport start
-        passport.use( new Strategy( config.passport, ( accessToken, refreshToken, profile, callback ) => callback( null, profile )));
+        passport.use( new Strategy( config.passport, ( accessToken, refreshToken, profile, done ) => done( null, profile )));
 
         // next event
         return next();
