@@ -74,7 +74,7 @@ exports.session = {
     resave: false,
 
     // session cookies 10 sec
-    cookie: { maxAge: 1000 * 10 },
+    cookie: { maxAge: 1000 * 60 * 15 },
 };
 
 /*  Server setings

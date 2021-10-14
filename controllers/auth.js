@@ -17,7 +17,7 @@ const controller = new Controller( model );
 controller.auth = passport.authenticate( 'facebook' );
 
 // facebook auth success
-controller.callback = passport.authenticate( 'facebook', { failureRedirect: '/', auth_type: 'reauthenticate', auth_nonce: Math.floor( Math.random() * Number.MAX_SAFE_INTEGER ), });
+controller.callback = passport.authenticate( 'facebook', { failureRedirect: '/', auth_type: 'reauthenticate', auth_nonce: Date.now(), });
 
 // facebook auth success
 controller.success = async ( req, res, next ) => {
