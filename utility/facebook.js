@@ -14,8 +14,8 @@ const facebook = ( req, res, next ) => {
     try {
 
         // passport serialization
-        passport.serializeUser(( user, done ) => done( null, user.id ));
-        passport.deserializeUser(( id, done ) => done( null, id ));
+        passport.serializeUser(( user, done ) => done( null, user ));
+        passport.deserializeUser(( user, done ) => done( null, user ));
 
         // facebook passport start
         passport.use( new Strategy( config.passport, ( accessToken, refreshToken, profile, done ) => done( null, profile )));

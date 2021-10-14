@@ -3,8 +3,8 @@ const Controller = require( '../utility/controller' );
 const model = require( '../models/user' );
 
 // additional modules
+const config = require( '../utility/config' );
 const passport = require( 'passport' );
-
 
 // controller init
 const controller = new Controller( model );
@@ -14,10 +14,10 @@ const controller = new Controller( model );
 /*   *   *   *   *   *   *   *   *   *   */
 
 // facebook auth init
-controller.auth = passport.authenticate( 'facebook', { session: false });
+controller.auth = passport.authenticate( 'facebook' );
 
 // facebook auth success
-controller.callback = passport.authenticate( 'facebook', { session: false });
+controller.callback = passport.authenticate( 'facebook', { failureRedirect: '/', auth_type: 'reauthenticate', auth_nonce: Math.floor( Math.random() * Number.MAX_SAFE_INTEGER ), });
 
 // facebook auth success
 controller.success = async ( req, res, next ) => {
@@ -48,7 +48,7 @@ controller.success = async ( req, res, next ) => {
         };
 
         // sends secret auth via cookie
-        res.cookie( 'auth', req.user.id );
+        res.cookie( 'auth', auth, config.session.cookie );
 
         // final response
         return res.status( 300 ).redirect( '/' );

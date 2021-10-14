@@ -3,7 +3,8 @@ const cors = require( 'cors' );
 const express = require( 'express' );
 const mongoose = require( 'mongoose' );
 const passport = require( 'passport' );
-const session = require( 'cookie-session' );
+const parser = require( 'cookie-parser' );
+const session = require( 'express-session' );
 
 // swagger modules
 const swaggerJsDoc = require( 'swagger-jsdoc' );
@@ -54,6 +55,7 @@ app.use( cors() );
 
 // session setings
 app.use( session( config.session ));
+app.use( parser() );
 
 // express setings
 app.use( express.urlencoded({ extended: true }));

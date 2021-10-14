@@ -64,25 +64,23 @@ exports.swagger = {
 
 exports.session = {
 
-    // session name
-    name: 'session',
+    // session secret
+    secret: "cat & dog",
 
-    // session keys
-    keys: [ 'cat', 'dog' ],
+    // session save option
+    saveUninitialized: true,
 
-    // 15 minutes
-    maxAge: 1000 * 60 * 15,
+    // session resave option
+    resave: false,
+
+    // session cookies 10 sec
+    cookie: { maxAge: 1000 * 10 },
 };
 
 /*  Server setings
 /*   *   *   *   *   *   *   *   *   *   */
 
 exports.server = {
-
-    // native front-end server
-    frontAuth: 'https://kawlik.github.io/expenses/?auth=',
-
-    frontBase: 'https://kawlik.github.io/expenses/',
 
     // swagger docs
     swagger: '/swagger',
