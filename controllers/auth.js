@@ -29,6 +29,9 @@ controller.success = async ( req, res, next ) => {
         const base = req.user.id;
         const body = req.user._json;
 
+        // test func
+        console.log( base );
+
         // const auth provider
         const provider = 'facebook';
 
