@@ -29,9 +29,6 @@ controller.success = async ( req, res, next ) => {
         const base = req.user.id;
         const body = req.user._json;
 
-        // test func
-        console.log( base );
-
         // const auth provider
         const provider = 'facebook';
 
@@ -44,8 +41,8 @@ controller.success = async ( req, res, next ) => {
         // creates user if necessary
         if( !testUser ) {
 
-            // truncation of unnecessary data
-            body.picture = body.picture.data.url;
+            // profile picture revrite
+            body.picture = new URL( `https://graph.facebook.com/${ base }/picture?type=square` );
 
             // creates user object
             const user = await new controller.model({ auth: auth, body: body });
